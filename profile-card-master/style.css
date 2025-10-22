@@ -1,0 +1,452 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #234379);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  
+}
+.profile-card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: transform 0.3s;
+  background-image: url(./download909.jpg);
+}
+.profile-card:hover {
+  transform: scale(1.05);
+}
+.profile-header {
+  position: relative;
+ 
+}
+.profile-img {
+  height: 19vh;
+  width: 6rem;
+  border-radius: 10%;
+  border: 2px solid whitesmoke;
+  margin-top: -17px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.profile-name {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.profile-role {
+  font-size: 18px;
+  color: #ddd;
+}
+.profile-bio {
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 0 10px;
+}
+.profile-location, .profile-email, .profile-time {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+.profile-socials {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.social-link {
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* #CONTACT ICON */
+.profile-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-links .page-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background-color: #0077b6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-links .page-link:hover {
+  background-color: #005f8e;
+  transform: translateY(-2px);
+}
+
+.profile-links .page-link i {
+  font-size: 1rem;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 10px;
+}
+
+/* Shared Layout Styles */
+main {
+  background: #fff;
+  width: 100%;
+  max-width: 850px;
+  padding: 40px 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 1.9rem;
+  color: #0a66c2;
+  letter-spacing: 0.5px;
+}
+
+header i {
+  margin-right: 8px;
+}
+
+/* #ABOUT PAGE */
+.about-page section {
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.about-page h2 {
+  font-size: 1.3rem;
+  color: #0a66c2;
+  margin-bottom: 10px;
+}
+
+.about-page p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.about-page ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-page li {
+  margin: 8px 0;
+  padding-left: 1.4em;
+  position: relative;
+}
+
+.about-page li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #0a66c2;
+  font-size: 0.9rem;
+}
+
+.about-page footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* #CONTACT PAGE */
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form-group i {
+  color: #0a66c2;
+  margin-right: 6px;
+}
+
+/* Inputs & Textarea */
+input,
+textarea {
+  padding: 12px 14px;
+  border: 1.6px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+  background: #fefefe;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #0a66c2;
+  box-shadow: 0 0 6px rgba(10, 102, 194, 0.3);
+}
+
+/* Error & Success Messages */
+.error-message {
+  color: #d32f2f;
+  font-size: 0.83rem;
+  margin-top: 3px;
+  height: 14px;
+}
+
+.success-message {
+  text-align: center;
+  background: #e9f9ee;
+  color: #0a8839;
+  border: 1px solid #0a8839;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 25px;
+  font-size: 0.95rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Submit Button */
+button {
+  background: #0a66c2;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+}
+
+button i {
+  margin-right: 6px;
+}
+
+button:hover {
+  background: #084b8a;
+  transform: translateY(-2px);
+}
+
+/* #FOOTER NAVIGATION */
+footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: #0a66c2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #084b8a;
+}
+
+/* #ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* #MEDIA QUERY */
+
+@media (max-width: 767px) {
+  body {
+    height: auto;
+    padding: 25px, 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* === Profile Card (Index Page) === */
+  .profile-card {
+    width: 90%;
+  }
+
+  .profile-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .profile-socials a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+
+  .profile-socials img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .profile-socials a:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* === Contact & About Pages === */
+  main {
+    padding: 25px 18px;
+    box-shadow: none;
+    border-radius: 12px;
+    max-width: 95%;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  input,
+  textarea {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-page h2 {
+    font-size: 1.1rem;
+  }
+
+  .about-page p {
+    font-size: 0.9rem;
+  }
+}
+
+/* 💻 Medium Devices (Tablets & Small Laptops: 768px–1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    max-width: 780px;
+    padding: 45px 40px;
+  }
+
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .profile-card {
+    width: 80%;
+  }
+
+  .profile-socials a {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+}
+
+/* 🖥️ Extra Large Screens (Desktops ≥1200px) */
+@media (min-width: 1200px) {
+  main {
+    max-width: 900px;
+    padding: 50px 60px;
+  }
+
+  header h1 {
+    font-size: 2.1rem;
+  }
+
+  .profile-card {
+    width: 60%;
+  }
+
+  .profile-socials a {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}

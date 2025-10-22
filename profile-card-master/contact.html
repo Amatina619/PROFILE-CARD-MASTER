@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Shuaibu Quadri Eneye</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <main class="contact-page">
+    <header>
+      <h1><i class="fas fa-envelope-open-text"></i> Contact Me</h1>
+    </header>
+
+    <form id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+        <input 
+          type="text" 
+          id="fullName" 
+          name="fullName" 
+          data-testid="test-contact-name"
+          aria-describedby="error-fullName"
+        />
+        <span class="error-message" id="error-fullName" data-testid="test-contact-error-name"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          data-testid="test-contact-email"
+          aria-describedby="error-email"
+        />
+        <span class="error-message" id="error-email" data-testid="test-contact-error-email"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+        <input 
+          type="text" 
+          id="subject" 
+          name="subject" 
+          data-testid="test-contact-subject"
+          aria-describedby="error-subject"
+        />
+        <span class="error-message" id="error-subject" data-testid="test-contact-error-subject"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="message"><i class="fas fa-comment-alt"></i> Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          rows="5" 
+          data-testid="test-contact-message"
+          aria-describedby="error-message"
+        ></textarea>
+        <span class="error-message" id="error-message" data-testid="test-contact-error-message"></span>
+      </div>
+
+      <button type="submit" data-testid="test-contact-submit">
+        <i class="fas fa-paper-plane"></i> Submit
+      </button>
+    </form>
+
+    <p id="successMessage" class="success-message" data-testid="test-contact-success" style="display:none;">
+      <i class="fas fa-check-circle"></i> Your message has been successfully submitted!
+    </p>
+
+    <footer>
+      <nav aria-label="Page Navigation">
+        <ul class="footer-nav">
+          <li><a href="index.html"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="about.html"><i class="fas fa-id-card"></i> About Me</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </main>
+
+
+  <script>// ---------------------------
+// CONTACT FORM VALIDATION SCRIPT
+// Author: Shuaibu Quadri Eneye
+// ---------------------------
+
+// Wait until the page is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  // Input fields
+  const fullName = document.getElementById("fullName");
+  const email = document.getElementById("email");
+  const subject = document.getElementById("subject");
+  const message = document.getElementById("message");
+
+  // Error spans
+  const errorFullName = document.getElementById("error-fullName");
+  const errorEmail = document.getElementById("error-email");
+  const errorSubject = document.getElementById("error-subject");
+  const errorMessage = document.getElementById("error-message");
+
+  // Helper function: show error
+  const showError = (input, errorElement, message) => {
+    errorElement.textContent = message;
+    errorElement.style.color = "red";
+    input.style.borderColor = "red";
+  };
+
+  // Helper function: clear error
+  const clearError = (input, errorElement) => {
+    errorElement.textContent = "";
+    input.style.borderColor = "#ccc";
+  };
+
+  // Validate email format
+  const isValidEmail = (emailValue) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(emailValue);
+  };
+
+  // Real-time validation
+  [fullName, email, subject, message].forEach((input) => {
+    input.addEventListener("input", () => {
+      switch (input.id) {
+        case "fullName":
+          fullName.value.trim().length < 3
+            ? showError(fullName, errorFullName, "Full name must be at least 3 characters.")
+            : clearError(fullName, errorFullName);
+          break;
+
+        case "email":
+          !isValidEmail(email.value.trim())
+            ? showError(email, errorEmail, "Enter a valid email address.")
+            : clearError(email, errorEmail);
+          break;
+
+        case "subject":
+          subject.value.trim() === ""
+            ? showError(subject, errorSubject, "Subject is required.")
+            : clearError(subject, errorSubject);
+          break;
+
+        case "message":
+          message.value.trim().length < 10
+            ? showError(message, errorMessage, "Message must be at least 10 characters long.")
+            : clearError(message, errorMessage);
+          break;
+      }
+    });
+  });
+
+  // Handle form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent page reload
+
+    let isValid = true;
+
+    // Full name validation
+    if (fullName.value.trim().length < 3) {
+      showError(fullName, errorFullName, "Full name must be at least 3 characters.");
+      isValid = false;
+    }
+
+    // Email validation
+    if (!isValidEmail(email.value.trim())) {
+      showError(email, errorEmail, "Enter a valid email address.");
+      isValid = false;
+    }
+
+    // Subject validation
+    if (subject.value.trim() === "") {
+      showError(subject, errorSubject, "Subject is required.");
+      isValid = false;
+    }
+
+    // Message validation
+    if (message.value.trim().length < 10) {
+      showError(message, errorMessage, "Message must be at least 10 characters long.");
+      isValid = false;
+    }
+
+    // If everything is valid
+    if (isValid) {
+      // Clear form and errors
+      form.reset();
+      [errorFullName, errorEmail, errorSubject, errorMessage].forEach((err) => (err.textContent = ""));
+      [fullName, email, subject, message].forEach((input) => (input.style.borderColor = "#ccc"));
+
+      // Show success message
+      successMessage.style.display = "block";
+      successMessage.style.color = "green";
+      successMessage.style.fontWeight = "600";
+
+      // Hide message after 4 seconds
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 4000);
+    }
+  });
+});
+</script>
+  <script src="script.js"></script>
+</body>
+</html>
